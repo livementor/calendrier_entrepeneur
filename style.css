@@ -1,0 +1,737 @@
+/* Couleurs */
+:root {
+    --color-heading-titles: #000000;
+    --color-primary: #064E3F;
+    --color-secondary: #2D75B8;
+    --color-background: #DFF3FC;
+    --color-border: #DDDDDD;
+    --color-text-other: #7B7B7B;
+}
+
+body {
+    color: var(--color-text-other); /* Couleur par défaut pour le texte */
+    background-color: white; /* Couleur de fond par défaut */
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-heading-titles); /* Couleur des titres */
+    margin-top: 0; /* Marge supérieure de base */
+    margin-bottom: 0; /* Marge inférieure de base */
+    line-height: 1.2em;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Fraunces', serif;
+    font-size: calc(1rem + 1.5vw); /* Taille responsive */
+}
+
+h5, h6 {
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.02em; /* 2% d'interlettrage */
+    font-size: calc(0.8rem + 0.3vw); /* Taille responsive */
+}
+
+b {
+    font-weight: 600;
+}
+
+.except-title {
+    font-family: 'Rubik', sans-serif; font-weight: bold; text-transform: uppercase; letter-spacing: 0.02em; /* 2% d'interlettrage */
+}
+
+a, .btn-primary {
+    color: #fff; /* Couleur de texte pour les liens et boutons primaires */
+    background-color: var(--color-primary); /* Couleur de fond pour les éléments primaires */
+}
+
+a:hover, .btn-primary:hover {
+    background-color: var(--color-secondary); /* Couleur de fond au survol pour les éléments primaires */
+}
+
+.border-primary {
+    border-color: var(--color-primary);
+}
+
+.text-secondary {
+    color: var(--color-secondary); /* Couleur de texte secondaire */
+}
+
+.border {
+    border-color: var(--color-border); /* Couleur des contours */
+}
+
+/* Styles pour les éléments de calendrier */
+#calendar li[data-duty="URSSAF"], #CalendarInfos #URSSAF span {
+    background-color: #fff3e0;
+    color: #a36f2c;
+    border: 1px solid #bbac95;
+}
+#calendar li[data-duty="Solde"], #CalendarInfos #CFE span {
+    background-color: #ebffeb;
+    color: #3a993a;
+    border: 1px solid #a1b5a1;
+}
+#calendar li[data-duty="TVA"], #CalendarInfos #TVA span {
+    background-color: #e9e9ff;
+    color: #5555cd;
+    border: 1px solid #a1a1c5;
+}
+#calendar li[data-duty="IR"], #CalendarInfos #IR span {
+    background-color: #fff0e1;
+    color: #df7a47;
+    border: 1px solid #dda386;
+}
+#calendar li[data-duty="CVAE"], #CalendarInfos #CVAE span {
+    background-color: #e7fcfd;
+    color: #219ba1;
+    border: 1px solid #a2c5c7;
+}
+#calendar li[data-duty="IS"], #CalendarInfos #IS span {
+    background-color: #dae6ff;
+    color: #2d69e1;
+    border: 1px solid #abbcdd;
+}
+#calendar li[data-duty="TS"], #CalendarInfos #TS span {
+    background-color: #ffe3f1;
+    color: #ef2a6c;
+    border: 1px solid #d7b1be;
+}
+
+
+/* Bootstrap Responsive Typography */
+@media (max-width: 1200px) {
+    h1 { font-size: calc(1.325rem + 0.9vw); }
+    h2 { font-size: calc(1.3rem + 0.6vw); }
+    h3 { font-size: calc(1.275rem + 0.3vw); }
+    h4, h5, h6 { font-size: calc(1.075rem + 0.2vw); }
+}
+
+@media (max-width: 992px) {
+    h1, h2, h3, h4, h5, h6 { font-size: 2rem; }
+}
+
+@media (max-width: 768px) {
+    h1, h2, h3, h4, h5, h6 {
+        font-size: calc(1.025rem + 2vw); /* Plus petit pour les petits écrans */
+    }
+}
+
+body, label, input, select, button, textarea {
+    font-family: 'Rubik', sans-serif;
+    font-size: calc(0.8rem + 0.5vw); /* Taille de base responsive */
+    line-height: 1.6em;
+    color: var(--color-text-other); /* Couleur du texte définie précédemment */
+}
+
+p {
+    margin: 0;
+}
+
+/* Stylisation supplémentaire pour améliorer l'accessibilité et l'esthétique des formulaires */
+/* Base pour input, textarea et select */
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    background-color: #eee;
+    border: 1px solid #DDDDDD;
+    border-radius: 0.5em;
+    font-family: 'Rubik', sans-serif; /* Assurez-vous que la police est bien importée dans votre <head> */
+    color: #333;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Style pour les labels pour une meilleure visibilité */
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+/* Animation de focus pour souligner l'élément actif */
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #007bff; /* Couleur principale */
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+button {
+    font-size: calc(0.6rem + 0.5vw); /* Taille de base responsive */
+    gap: 5px;
+    align-items: center;
+    cursor: pointer;
+    margin: 1vh 0;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: var(--color-primary); /* Couleur de fond pour les boutons */
+    border:2px solid var(--color-primary);
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #043D31; /* Couleur plus foncée au survol */
+}
+
+.outlined {
+    font-size: calc(0.6rem + 0.5vw); /* Taille de base responsive */
+    cursor: pointer;
+    margin: 1vh 0;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: white; /* Couleur de fond pour les boutons */
+    border:2px solid var(--color-primary);
+    color: var(--color-primary);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.outlined:hover {
+    background-color: #043D31; /* Couleur plus foncée au survol */
+    color:white;
+}
+
+
+
+/* Responsive Typography Adjustments */
+@media (max-width: 992px) {
+    body, label, input, select, button, textarea {
+        font-size: calc(0.7rem + 0.5vw);
+    }
+}
+
+@media (max-width: 768px) {
+    body, label, input, select, button, textarea {
+        font-size: calc(0.6rem + 0.5vw);
+    }
+}
+
+@media (max-width: 576px) {
+    body, label, input, select, button, textarea {
+        font-size: 0.8rem; /* Taille fixe sur très petits écrans pour améliorer la lisibilité */
+    }
+}
+
+.center {
+    text-align: center;
+}
+
+/* Marges et paddings utilisant em pour une meilleure adaptabilité au texte */
+.margin-xsmall { margin: 0.5em 0; } 
+.padding-xsmall { padding: 0.5em 0; }
+
+.margin-small { margin: 1em 0; } 
+.padding-small { padding: 1em 0; }
+
+.margin-medium { margin: 2em 0; } 
+.padding-medium { padding: 2em 0; }
+
+.margin-large { margin: 3em 0; }
+.padding-large { padding: 3em 0; }
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3vh 0;
+}
+
+.nav-left, .nav-right {
+    flex: 1;
+}
+
+.nav-center {
+    flex: 2;
+    text-align: center;
+}
+
+.navbar-logo {
+    height: 14vh;
+}
+
+#container {
+    max-width: 1200px;
+    padding: 0 40px;
+    margin: 0 auto !important;
+}
+
+#container-form {
+    max-width: 1200px;
+    padding: 0 40px;
+    margin: 0 auto !important;
+}
+
+#calendarIntro {
+    margin-top: 5vh;
+    text-align: center;
+}
+
+#CalendarInfos {
+    margin: 1vh 0 0;
+    padding:0;
+}
+
+#calendarIntro li {
+    line-height: 44px;
+}
+
+#calendarIntro span {
+    background: #eee;
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Style des slides */
+#slider {
+    height: 74vh;
+    border: 1px solid #DDDDDD;
+    border-radius: 10px;
+}
+
+@media (min-width: 992px) {
+    .introSlide {
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+.form-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 74vh;
+}
+
+.form-element {
+    flex: 2; /* Prend 2/3 de l'espace disponible */
+    padding: 0 5em;
+    text-align: center;
+}
+
+.form-info {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+    background-color: var(--color-background); 
+    color: var(--color-secondary);
+    flex: 1;
+    padding: 0 5em;
+    text-align: center;
+}
+
+.hs_firstname .input {
+    margin-bottom: 12px;
+}
+
+.hs-button {
+    margin-top: 0 !important;
+}
+
+.hs_firstname input, .hs_email input {
+    width: 80%;
+}
+
+#label-firstname-b00938f9-204f-4ab7-a5d6-079a4a3ab41a, #label-email-b00938f9-204f-4ab7-a5d6-079a4a3ab41a, .hs_error_rollup {
+    display: none;
+}
+
+.hs-button {
+    width: fit-content;
+    padding: 14px 50px;
+    font-size: calc(0.6rem + 0.5vw);
+    gap: 5px;
+    align-items: center;
+    cursor: pointer;
+    margin: 1vh 0;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: var(--color-primary) !important;
+    border: 2px solid var(--color-primary);
+    color: white;
+}
+
+.label-firstname-b00938f9-204f-4ab7-a5d6-079a4a3ab41a, .label-email-b00938f9-204f-4ab7-a5d6-079a4a3ab41a {
+display: none !important;
+}
+
+.hs_submit .actions {
+    margin-top: 20px;
+}
+
+.hs-error-msgs {
+    list-style: none;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+.hs-error-msgs label  {
+    margin: 10px 0 0 0 !important;
+    font-size: 14px;
+    background: hsl(0deg 100% 95.3%);
+    color: #c36060;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+/* Pour s'assurer que les icônes (si elles sont des éléments <span> ou <i>) utilisent la même couleur */
+.form-info span,
+.form-info i,
+.form-info .material-symbols-outlined {
+    color: var(--color-secondary); /* Couleur des icônes */
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+form label {
+    margin-right: 10px;
+}
+
+form select {
+    margin-right: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form-info .link {
+    color: var(--color-secondary);
+    font-weight: 600;
+    background-color: unset;
+    text-decoration: none ;
+}    
+
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 2vh 0;
+}
+
+.select-wrapper select {
+    -webkit-appearance: none; /* Pour WebKit/Blink */
+    -moz-appearance: none;    /* Pour Firefox */
+    appearance: none;         /* Standard */
+    padding: 0.6em 4em;
+}
+
+.select-wrapper .material-symbols-outlined {
+    position: absolute;
+    right: 10px; /* Ajustez selon le besoin */
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Permet de cliquer sur le select même sur l'icône */
+}
+
+.arrowBtn {
+    height: 3.5em ;
+    width: 3.5em ;
+    line-height: 4.2em ;
+    padding: 0;
+}
+
+#calendarContainer {
+    padding: 0 0 2vh;
+}
+
+
+#calendarTitle {
+    margin-bottom: 4vh;
+}
+
+#calendarReload {
+    text-align: center;
+    margin-top: 4vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.calendar-grid li {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.calendar-grid li strong {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 18px;
+}
+
+.fiscal-duties {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.fiscal-duties li {
+    background-color: #eff0f1;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link-with-icon {
+    display: flex;
+    color: #333;
+    background: none;
+    text-decoration: none;
+}
+
+.link-with-icon:hover {
+    color: #333;
+    background: none;
+}
+
+#fiscalForm {
+    display: none;
+}
+
+.partner {
+    background-color : var(--color-background);
+    margin-top: 10vh;
+    padding: 5vh 0 10vh;
+}
+
+  .card-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Permet aux cartes de passer à la ligne suivante sur les petits écrans */
+  }
+  
+  .card {
+    flex-basis: calc(33.333% - 20px);
+    margin: 0;
+    background-color: white;
+    border-radius: 0.5em;
+    text-align: center;
+}
+  
+  .card-image img {
+    height: 14vh;
+    display: block;
+    margin: 1.5em auto 0;
+  }
+  
+  .card-content {
+    padding: 1em 1.5em 2em;
+  }
+  
+  .card-button {
+    font-size: calc(0.6rem + 0.5vw); /* Taille de base responsive */
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: var(--color-primary);
+    background-color: white;
+    border: 2px solid var(--color-primary);
+    padding: 0.8rem 1.6rem;
+    display: inline-block;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .card-button:hover {
+    background-color: var(--color-primary);
+    color: white;
+  }
+  
+  /* Pour les écrans inférieurs à 600px de large */
+  @media (max-width: 600px) {
+    .card-container {
+      justify-content: center;
+    }
+  
+    .card {
+      flex-basis: 90%; /* Prend presque toute la largeur de l'écran */
+      margin: 10px; /* Maintient un peu d'espace autour des cartes */
+    }
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4vh 0;
+    border-top: 1px solid #eaeaea; /* Optionnel */
+    font-size: calc(0.6rem + 0.5vw); /* Taille de base responsive */
+  }
+  
+  .footer-left,
+  .footer-right {
+    flex-basis: 50%;
+  }
+  
+  .footer-link {
+    text-decoration: none;
+    text-align: right;
+    display: block; /* Permettre l'alignement à droite */
+    color: var(--color-text-other);
+    background-color: white;
+  }
+
+  .footer-link:hover {
+    color: var(--color-text-other);
+    background-color: white;
+  }
+  
+  /* Pour les écrans plus petits, empiler les éléments verticalement */
+  @media (max-width: 768px) {
+    .footer {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .footer-left,
+    .footer-right {
+      flex-basis: 100%;
+      margin-bottom: 0px; /* Ajouter un peu d'espace entre les éléments lorsqu'ils sont empilés */
+    }
+  
+    .footer-link {
+      text-align: center;
+    }
+  }
+  
+
+  @media (max-width: 768px) {
+
+    .navbar {
+        padding: 2vh 0;
+    }
+
+    .navbar-logo {
+        height: 10vh;
+    }
+
+    #slider, .slide {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #slider {
+        border-radius: 0;
+        height: auto;
+    }
+
+    .slide {
+        height: 85vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-item {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .form-element {
+        flex-grow: 6; /* Donne à form-element une proportion plus grande */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Aligner le contenu en haut */
+        overflow-y: auto; /* Ajoute un défilement si le contenu dépasse */
+        padding: 0 15px;
+    }
+
+    .form-info {
+        flex-grow: 4; /* Moins d'espace comparé à form-element */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Aligner le contenu en bas */
+        padding: 0 15px;
+        width: -webkit-fill-available;
+    }
+
+    #container {
+        max-width: 100%;
+        padding: 0 15px;
+        margin: 0 auto !important;
+    }
+    
+    #container-form {
+        max-width: 100%;
+        padding: 0 0;
+        margin: 0 auto !important;
+    }
+
+    .calendar-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+        padding: 0 15px;
+    }
+
+    #calendarReload {
+        text-align: center;
+        margin-top: 3vh;
+        margin-bottom: 2vh;
+        display: flex;
+        gap: 0px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #calendarIntro li {
+        line-height: 34px;
+    }
+
+    #drawer {
+        padding: 30px !important; 
+    }
+
+}
+
+#drawer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0px -2px 5px rgba(0,0,0,0.1);
+    padding: 40px 280px;
+    box-sizing: border-box;
+    border-top: 1px solid #ddd;
+}
+
+#howToAdd {
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: smaller;
+}
