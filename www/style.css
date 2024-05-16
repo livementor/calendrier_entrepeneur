@@ -70,7 +70,7 @@ a:hover, .btn-primary:hover {
     color: #a36f2c;
     border: 1px solid #bbac95;
 }
-#calendar li[data-duty="Solde"], #CalendarInfos #CFE span {
+#calendar li[data-duty="CFE"], #CalendarInfos #CFE span {
     background-color: #ebffeb;
     color: #3a993a;
     border: 1px solid #a1b5a1;
@@ -100,7 +100,21 @@ a:hover, .btn-primary:hover {
     color: #ef2a6c;
     border: 1px solid #d7b1be;
 }
-
+#calendar li[data-duty="OETH"], #CalendarInfos #OETH span {
+    background-color: #dcfff6;
+    color: #009783;
+    border: 1px solid #93bfb6;
+}
+#calendar li[data-duty="PEEC"], #CalendarInfos #PEEC span {
+    background-color: #ffe3e1;
+    color: #b40900;
+    border: 1px solid #b38c89;
+}
+#calendar li[data-duty="TTE"], #CalendarInfos #TTE span {
+    background-color: #f1e1ff;
+    color: #440083;
+    border: 1px solid #a692b9;
+}
 
 /* Bootstrap Responsive Typography */
 @media (max-width: 1200px) {
@@ -130,6 +144,20 @@ body, label, input, select, button, textarea {
 p {
     margin: 0;
 }
+
+.disclaimer {
+    text-align: center;
+    font-size: small;
+    line-height: 1.4em;
+    padding: 6vh 10% 0;
+}
+
+.disclaimer a {
+    text-decoration: none;
+    color: var(--color-text-other);
+    background-color: white;
+}
+
 
 /* Stylisation supplémentaire pour améliorer l'accessibilité et l'esthétique des formulaires */
 /* Base pour input, textarea et select */
@@ -347,6 +375,12 @@ button:hover {
 #label-firstname-b00938f9-204f-4ab7-a5d6-079a4a3ab41a, #label-email-b00938f9-204f-4ab7-a5d6-079a4a3ab41a, .hs_error_rollup {
     display: none;
 }
+
+.grecaptcha-badge {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+  }
 
 .hs-button {
     width: fit-content;

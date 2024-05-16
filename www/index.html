@@ -32,16 +32,17 @@
     <script src="script.js"></script>
     <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
 
-    <script>
-$(document).ready(function() {
-    $('#howToAdd').click(function() {
-        $('#drawer').slideDown();
-    });
 
-    $('#closeDrawer').click(function() {
-        $('#drawer').slideUp();
-    });
-});
+    <script>
+        $(document).ready(function() {
+            $('#howToAdd').click(function() {
+                $('#drawer').slideDown();
+            });
+
+            $('#closeDrawer').click(function() {
+                $('#drawer').slideUp();
+            });
+        });
     </script>
 
 </head>
@@ -82,7 +83,7 @@ $(document).ready(function() {
                 <div class="select-wrapper">
                 <select id="status" name="status">
                     <option value="auto-entrepreneur">Auto-entrepreneur / Micro-entreprise</option>
-                    <option value="entreprise">Société (EI, EIRL, SARL, SAS, SASU, etc.)</option>
+                    <option value="entreprise">Société</option>
                 </select>
                 <span class="material-symbols-outlined">expand_more</span>  
                 </div>
@@ -115,7 +116,7 @@ $(document).ready(function() {
             </div>
             <div class="form-info">
                 <span class="material-symbols-outlined margin-xsmall"> info </span>
-                <p>Sélectionnez le type d'activité principale de votre micro-entreprise ou auto-entreprise.</p>
+                <p>Sélectionnez le <a class="link" href="https://entreprendre.service-public.fr/vosdroits/F21746">type d’activité principale</a> de votre micro/auto-entreprise. </p>
             </div>
         </div>
     </div>
@@ -145,6 +146,52 @@ $(document).ready(function() {
             </div>
         </div>
     </div>
+    <div class="slide" id="employeeQuestionSlide">
+        <div class="form-item">
+            <div class="form-element">
+                <h3>Avez-vous des employés ?</h3>
+                <div class="select-wrapper">
+                    <select id="employeeCount" name="employeeCount">
+                        <option value="none">Pas de salarié</option>
+                        <option value="less20">Moins de 20 salariés</option>
+                        <option value="more20">Plus de 20 salariés</option>
+                        <option value="more50">Plus de 50 salariés</option>
+                    </select>
+                    <span class="material-symbols-outlined">expand_more</span>  
+                </div>
+                <div class="slider-buttons" id="slider-nav">
+                    <button class="prevBtn arrowBtn"><span class="material-symbols-outlined"> arrow_back </span></button>
+                    <button class="nextBtn arrowBtn" ><span class="material-symbols-outlined"> arrow_forward </span></button>
+                </div>    
+            </div>
+            <div class="form-info">
+                <span class="material-symbols-outlined margin-xsmall"> info </span>
+                <p>Veuillez indiquer si vous employez des salariés et, si oui, combien.</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide" id="foreignWorkersQuestionSlide" style="display: block;">
+        <div class="form-item">
+            <div class="form-element">
+                <h3>Employez-vous des travailleurs étrangers ?</h3>
+                <div class="select-wrapper">
+                    <select id="foreignWorkers" name="foreignWorkers">
+                        <option value="non">Non</option>
+                        <option value="oui">Oui</option>
+                    </select>
+                    <span class="material-symbols-outlined">expand_more</span>  
+                </div>
+                <div class="slider-buttons" id="slider-nav">
+                    <button class="prevBtn arrowBtn"><span class="material-symbols-outlined"> arrow_back </span></button>
+                    <button class="nextBtn arrowBtn" ><span class="material-symbols-outlined"> arrow_forward </span></button>
+                </div>    
+            </div>
+            <div class="form-info">
+                <span class="material-symbols-outlined margin-xsmall"> info </span>
+                <p>Cette information est nécessaire pour déterminer certaines obligations fiscales spécifiques.</p>
+            </div>
+        </div>
+    </div>        
     <div class="slide" id="tvaFrequencySlide">
         <div class="form-item">
             <div class="form-element">
@@ -195,7 +242,7 @@ $(document).ready(function() {
     <div class="slide" id="urssafFrequencySlide">
         <div class="form-item">
             <div class="form-element">
-                <h3>Contributions sociales URSSAF</h3>
+                <h3>Fréquence des cotisations URSSAF</h3>
                 <div class="select-wrapper">
                 <select id="urssafFrequency" name="urssafFrequency">
                     <option value="mensuelle">Mensuelle</option>
@@ -221,8 +268,8 @@ $(document).ready(function() {
                 <label style="margin-top:2vh;" id="caDeclarationLabel" for="caDeclaration">Votre CA est-il supérieur à 152 500€ ?</label>
                 <div style="padding-top:1vh;" class="select-wrapper">
                 <select id="caSup" name="caSup">
-                    <option value="non">NON</option>
-                    <option value="oui">OUI</option>
+                    <option value="non">Non</option>
+                    <option value="oui">Oui</option>
                 </select>
                 <span class="material-symbols-outlined">expand_more</span>  
                 </div>
@@ -244,46 +291,52 @@ $(document).ready(function() {
                 <div class="margin-small" id="summary">
                     <!-- L'endroit pour le résumé -->
                 </div>
+
                 
                 <script>
-hbspt.forms.create({
-    portalId: "4075335",
-    formId: "b00938f9-204f-4ab7-a5d6-079a4a3ab41a",
-    onFormSubmit: function(event) {
-        var email = document.getElementById('email-b00938f9-204f-4ab7-a5d6-079a4a3ab41a').value;
-        var firstName = document.getElementById('firstname-b00938f9-204f-4ab7-a5d6-079a4a3ab41a').value;
+					hbspt.forms.create({
+					    portalId: "4075335",
+					    formId: "b00938f9-204f-4ab7-a5d6-079a4a3ab41a",
+					    onFormSubmit: function(event) {
+					        var email = document.getElementById('email-b00938f9-204f-4ab7-a5d6-079a4a3ab41a').value;
+					        var firstName = document.getElementById('firstname-b00938f9-204f-4ab7-a5d6-079a4a3ab41a').value;
 
-        // Vérifier que l'email et le prénom sont remplis
-        if (!email.trim() || !firstName.trim()) {
-            alert('Veuillez remplir tous les champs requis.');
-            event.preventDefault(); // Empêche la soumission du formulaire et donc la génération du calendrier
-        } else {
-            generateCalendar();  // Assurez-vous que cette fonction est accessible globalement
-        }
-    }
-});
+					        // Vérifier que l'email et le prénom sont remplis
+					        if (!email.trim() || !firstName.trim()) {
+					            alert('Veuillez remplir tous les champs requis.');
+					            event.preventDefault(); // Empêche la soumission du formulaire et donc la génération du calendrier
+					        } else {
+					            generateCalendar();  // Assurez-vous que cette fonction est accessible globalement
+					        }
+					    }
+					});
+                </script> 
 
-                </script>
+                
+                <!-- Bouton pour le dev local<button type="button" id="generateCalendar" onclick="generateCalendar()">Générer Calendrier</button>-->
                 
             </div>
         </div>
     </div>
+
 </div>
-
-
+        
 <!-- Calendrier généré -->
 <div id="calendarContainer" style="display:none;">
     <ul id="calendar" class="calendar-grid"></ul>
     <div id="calendarIntro">
         <h4>Vous avez rendez-vous avec :</h4>
         <ul id="CalendarInfos" style="list-style-type: none;">
-            <li id="URSSAF"><span>URSSAF</span> (mettre une phrase d’explication, etc.)</li>
-            <li id="CFE"><span>CFE</span> (mettre une phrase d’explication, etc.)</li>
-            <li id="TVA"><span>TVA</span> (mettre une phrase d’explication, etc.)</li>
-            <li id="IR"><span>⁠IR</span> (mettre une phrase d’explication, etc.)</li>
-            <li id="CVAE"><span>CVAE</span> (mettre une phrase d’explication, etc.)</li>
-            <li id="IS"><span>⁠IS</span> (mettre une phrase d’explication, etc.)</li>
-            <li id="TS"><span>⁠TS</span> (mettre une phrase d’explication, etc.)</li>
+            <li id="URSSAF"><span>URSSAF</span> cotisations sociales</li>
+            <li id="CFE"><span>CFE</span> Cotisation Foncière des Entreprises </li>
+            <li id="TVA"><span>TVA</span> Taxe sur la Valeur Ajoutée</li>
+            <li id="IR"><span>⁠IR</span> Impôt sur le Revenu</li>
+            <li id="CVAE"><span>CVAE</span> Cotisation sur la valeur ajoutée des entreprises</li>
+            <li id="IS"><span>⁠IS</span> Impôt sur les Sociétés</li>
+            <li id="TS"><span>⁠TS</span> Taxe sur les Salaires</li>
+            <li id="OETH"><span>OETH</span> Contribution annuelle à l'Obligation d'Emploi des Travailleurs Handicapés</li>
+            <li id="PEEC"><span>PEEC</span> Participation de l'employeur à l'effort de construction</li>
+            <li id="OFII"><span>OFII</span> Taxe sur les Travailleurs Etrangers</li>            
         </ul>
     </div>
     <div id="calendarReload">
@@ -310,6 +363,12 @@ hbspt.forms.create({
     <button id="closeDrawer">Fermer</button>
 </div>
 
+<p  style="display: block;" id="disclaimer"class="disclaimer">
+    Attention, ce calendrier reprend les principales échéances fiscales & sociales pour une activité du 01/01 au 31/12.
+    Nous vous invitons à vous renseigner sur les sites de l’Etat comme <a href="https://www.impots.gouv.fr/">impôts.gouv.fr</a> ou <a href="http://urssaf.fr/">urssaf.fr</a>
+    ou auprès d’un expert-comptable pour toute spécificité qui serait propre à votre activité (libérale par exemple), votre localisation (Outre-Mer par exemple),
+    ou encore votre situation personnelle…
+    </p>
 
 </div>
 
