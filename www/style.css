@@ -253,13 +253,13 @@ button:hover {
 }
 
 /* Marges et paddings utilisant em pour une meilleure adaptabilité au texte */
-.margin-xsmall { margin: 0.5em 0; } 
+.margin-xsmall { margin: 0.5em 0; }
 .padding-xsmall { padding: 0.5em 0; }
 
-.margin-small { margin: 1em 0; } 
+.margin-small { margin: 1em 0; }
 .padding-small { padding: 1em 0; }
 
-.margin-medium { margin: 2em 0; } 
+.margin-medium { margin: 2em 0; }
 .padding-medium { padding: 2em 0; }
 
 .margin-large { margin: 3em 0; }
@@ -300,7 +300,11 @@ button:hover {
 
 #calendarIntro {
     margin-top: 5vh;
-    text-align: center;
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
 }
 
 #CalendarInfos {
@@ -348,12 +352,12 @@ button:hover {
 }
 
 .form-info {
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    height: 100%; 
-    background-color: var(--color-background); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: var(--color-background);
     color: var(--color-secondary);
     flex: 1;
     padding: 0 5em;
@@ -450,7 +454,7 @@ form select {
     font-weight: 600;
     background-color: unset;
     text-decoration: none ;
-}    
+}
 
 .select-wrapper {
     position: relative;
@@ -564,7 +568,7 @@ form select {
     justify-content: space-between;
     flex-wrap: wrap; /* Permet aux cartes de passer à la ligne suivante sur les petits écrans */
   }
-  
+
   .card {
     flex-basis: calc(33.333% - 20px);
     margin: 0;
@@ -572,17 +576,17 @@ form select {
     border-radius: 0.5em;
     text-align: center;
 }
-  
+
   .card-image img {
     height: 14vh;
     display: block;
     margin: 1.5em auto 0;
   }
-  
+
   .card-content {
     padding: 1em 1.5em 2em;
   }
-  
+
   .card-button {
     font-size: calc(0.6rem + 0.5vw); /* Taille de base responsive */
     text-transform: uppercase;
@@ -598,24 +602,24 @@ form select {
     margin-top: 20px;
     transition: all 0.3s ease;
   }
-  
+
   .card-button:hover {
     background-color: var(--color-primary);
     color: white;
   }
-  
+
   /* Pour les écrans inférieurs à 600px de large */
   @media (max-width: 600px) {
     .card-container {
       justify-content: center;
     }
-  
+
     .card {
       flex-basis: 90%; /* Prend presque toute la largeur de l'écran */
       margin: 10px; /* Maintient un peu d'espace autour des cartes */
     }
   }
-  
+
   .footer {
     display: flex;
     justify-content: space-between;
@@ -624,12 +628,12 @@ form select {
     border-top: 1px solid #eaeaea; /* Optionnel */
     font-size: calc(0.6rem + 0.5vw); /* Taille de base responsive */
   }
-  
+
   .footer-left,
   .footer-right {
     flex-basis: 50%;
   }
-  
+
   .footer-link {
     text-decoration: none;
     text-align: right;
@@ -642,25 +646,25 @@ form select {
     color: var(--color-text-other);
     background-color: white;
   }
-  
+
   /* Pour les écrans plus petits, empiler les éléments verticalement */
   @media (max-width: 768px) {
     .footer {
       flex-direction: column;
       text-align: center;
     }
-    
+
     .footer-left,
     .footer-right {
       flex-basis: 100%;
       margin-bottom: 0px; /* Ajouter un peu d'espace entre les éléments lorsqu'ils sont empilés */
     }
-  
+
     .footer-link {
       text-align: center;
     }
   }
-  
+
 
   @media (max-width: 768px) {
 
@@ -717,7 +721,7 @@ form select {
         padding: 0 15px;
         margin: 0 auto !important;
     }
-    
+
     #container-form {
         max-width: 100%;
         padding: 0 0;
@@ -745,7 +749,7 @@ form select {
     }
 
     #drawer {
-        padding: 30px !important; 
+        padding: 30px !important;
     }
 
 }
