@@ -376,6 +376,10 @@ button:hover {
     width: 80%;
 }
 
+.hs-form-booleancheckbox::marker {
+    display: none;
+}
+
 #label-firstname-b00938f9-204f-4ab7-a5d6-079a4a3ab41a, #label-email-b00938f9-204f-4ab7-a5d6-079a4a3ab41a, .hs_error_rollup {
     display: none;
 }
