@@ -389,7 +389,7 @@ button:hover {
 
 .hs-form-booleancheckbox-display {
   display: flex;
-  font-size: 18px;
+  font-size: calc(0.8rem + 0.5vw);
   text-align: left;
 }
 
