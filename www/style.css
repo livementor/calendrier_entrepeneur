@@ -376,8 +376,25 @@ button:hover {
     width: 80%;
 }
 
-.hs-form-booleancheckbox::marker {
-    display: none;
+.hs-fieldtype-booleancheckbox .inputs-list {
+  padding: 0px;
+}
+
+.hs-form-booleancheckbox {
+    display: block;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.hs-form-booleancheckbox-display {
+  display: flex;
+  font-size: 18px;
+  text-align: left;
+}
+
+.hs-form-booleancheckbox-display .hs-input {
+  width: 30px;
 }
 
 #label-firstname-b00938f9-204f-4ab7-a5d6-079a4a3ab41a, #label-email-b00938f9-204f-4ab7-a5d6-079a4a3ab41a, .hs_error_rollup {
