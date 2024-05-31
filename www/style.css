@@ -325,7 +325,8 @@ button:hover {
 
 /* Style des slides */
 #slider {
-    height: 74vh;
+    min-height: 70vh;
+    padding:2vh 0;
     border: 1px solid #DDDDDD;
     border-radius: 10px;
 }
@@ -342,7 +343,7 @@ button:hover {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 74vh;
+    min-height: 74vh;
 }
 
 .form-element {
@@ -356,7 +357,7 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    min-height: 74vh;
     background-color: var(--color-background);
     color: var(--color-secondary);
     flex: 1;
@@ -374,27 +375,6 @@ button:hover {
 
 .hs_firstname input, .hs_email input {
     width: 80%;
-}
-
-.hs-fieldtype-booleancheckbox .inputs-list {
-  padding: 0px;
-}
-
-.hs-form-booleancheckbox {
-    display: block;
-    width: 80%;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.hs-form-booleancheckbox-display {
-  display: flex;
-  font-size: calc(0.7rem + 0.5vw);
-  text-align: left;
-}
-
-.hs-form-booleancheckbox-display .hs-input {
-  width: 30px;
 }
 
 #label-firstname-b00938f9-204f-4ab7-a5d6-079a4a3ab41a, #label-email-b00938f9-204f-4ab7-a5d6-079a4a3ab41a, .hs_error_rollup {
@@ -608,6 +588,11 @@ form select {
     padding: 1em 1.5em 2em;
   }
 
+  .card-content a {
+    color: #555;
+    text-decoration: none;
+    }
+
   .card-button {
     font-size: calc(0.6rem + 0.5vw); /* Taille de base responsive */
     text-transform: uppercase;
@@ -735,6 +720,8 @@ form select {
         justify-content: center; /* Aligner le contenu en bas */
         padding: 0 15px;
         width: -webkit-fill-available;
+        height:100%;
+        min-height: unset;
     }
 
     #container {
