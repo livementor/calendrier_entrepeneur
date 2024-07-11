@@ -609,6 +609,14 @@ form select {
     padding: 1em 1.5em 2em;
   }
 
+  .card-content a {
+    color: var(--color-primary);
+    background: none;
+  }
+  .card-content a:hover {
+      background: none;
+  }
+
   .card-button {
     font-size: calc(0.6rem + 0.5vw); /* Taille de base responsive */
     text-transform: uppercase;
