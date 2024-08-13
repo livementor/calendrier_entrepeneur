@@ -17,7 +17,7 @@ function setupDownloadButton(icsEvents) {
     downloadButton.style.display = 'flex'; // Affichez le bouton
 
     downloadButton.onclick = () => {
-        downloadICS(icsEvents);
+        downloadCSV(icsEvents); // Appel de la fonction downloadCSV au lieu de downloadICS
     };
 }
 
@@ -172,10 +172,10 @@ function addURSSAFDates(dates, urssafFrequency, status) {
         }
     } else if (urssafFrequency === 'trimestrielle') {
         dates.push(
-            { month: 2, day: getLastDayOfMonth(2), duty: "URSSAF " },
-            { month: 5, day: getLastDayOfMonth(5), duty: "URSSAF " },
-            { month: 8, day: getLastDayOfMonth(8), duty: "URSSAF " },
-            { month: 11, day: getLastDayOfMonth(11), duty: "URSSAF " }
+            { month: 1, day: getLastDayOfMonth(2), duty: "URSSAF " },
+            { month: 4, day: getLastDayOfMonth(5), duty: "URSSAF " },
+            { month: 7, day: getLastDayOfMonth(8), duty: "URSSAF " },
+            { month: 10, day: getLastDayOfMonth(11), duty: "URSSAF " }
         );
     }
 }
@@ -233,6 +233,15 @@ function addEnterpriseSpecificDates(dates, salaryTaxe, tvaFrequency, caSup, fore
         );
     } 
 
+    // PAS
+    if (employeeCount !== 'none') {
+        for (let m = 1; m <= 12; m++) {
+            dates.push(
+                { month: m, day: 15, duty: "PAS " }
+            );
+        }
+    }    
+
     // Taxe sur les salaires, uniquement si TVA est exonérée
     if (salaryTaxe === 'low') {
         dates.push({ month: 1, day: 15, duty: "TS N-1 - Solde " });
@@ -263,41 +272,34 @@ function getLastDayOfMonth(month) {
 
 
 
-function downloadICS(events) {
-    let icsContent = [
-        'BEGIN:VCALENDAR',
-        'VERSION:2.0',
-        'PRODID:-//hacksw/handcal//NONSGML v1.0//EN',
-        'CALSCALE:GREGORIAN',
-        'BEGIN:VTIMEZONE',
-        'TZID:Europe/Paris',
-        'END:VTIMEZONE',
-    ];
+function downloadCSV(events) {
+    // Créer le contenu du fichier CSV avec l'en-tête
+    let csvContent = 'Subject,Description,Start Date,End Date,All Day Event\n'; // En-tête du CSV
 
     events.forEach(event => {
-        icsContent.push(
-            'BEGIN:VEVENT',
-            `SUMMARY:${event.title}`,
-            `DESCRIPTION:${event.description}`,
-            `DTSTART;TZID=Europe/Paris:${event.startDate}`,
-            `DTEND;TZID=Europe/Paris:${event.endDate}`,
-            'END:VEVENT'
-        );
+        // Échapper les virgules et les guillemets dans les champs
+        const title = event.title.replace(/"/g, '""');
+        const description = event.description.replace(/"/g, '""');
+        const date = event.startDate.substring(0, 8); // Utiliser uniquement la partie date (AAAAMMJJ)
+        const formattedDate = `${date.substring(0, 4)}-${date.substring(4, 6)}-${date.substring(6, 8)}`;
+        
+        // Google Calendar CSV format requires the same start and end date for all-day events
+        csvContent += `"${title}","${description}","${formattedDate}","${formattedDate}","TRUE"\n`;
     });
 
-    icsContent.push('END:VCALENDAR');
-
-    const icsBlob = new Blob([icsContent.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
-    const icsUrl = URL.createObjectURL(icsBlob);
+    // Créer un blob à partir du contenu CSV
+    const csvBlob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const csvUrl = URL.createObjectURL(csvBlob);
 
     // Créer et cliquer sur un lien pour télécharger
     const link = document.createElement('a');
-    link.href = icsUrl;
-    link.setAttribute('download', 'calendrier_fiscal.ics');
+    link.href = csvUrl;
+    link.setAttribute('download', 'calendrier_fiscal.csv');
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
 }
+
 
 // Attendre que le DOM soit complètement chargé
 document.addEventListener('DOMContentLoaded', function () {
@@ -333,6 +335,7 @@ function updateCalendarInfosDisplay() {
         'TS': document.getElementById('TS'),
         'OETH': document.getElementById('OETH'), // Ajouté pour OETH
         'PEEC': document.getElementById('PEEC'), // Ajouté pour PEEC
+        'PAS': document.getElementById('PAS'), // Ajouté pour PAS 
         'OFII': document.getElementById('OFII')  // Ajouté pour OFII si applicable
     };
 
